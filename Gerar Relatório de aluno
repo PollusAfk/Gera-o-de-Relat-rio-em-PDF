@@ -95,11 +95,29 @@ def gerar_pdf():
     """
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Arial", size=12)
 
+    # Título
+    pdf.set_font("Arial", "B", size=14)
+    pdf.cell(200, 10, txt="Resultado Final dos Alunos", ln=True, align="C")
+    pdf.ln(10)
+
+    # Cabeçalho da tabela
+    pdf.set_font("Arial", "B", size=12)
+    pdf.cell(70, 10, txt="Nome", border=1)
+    pdf.cell(60, 10, txt="Média", border=1)
+    pdf.cell(60, 10, txt="Situação", border=1)
+    pdf.ln()
+
+    # Dados
+    pdf.set_font("Arial", size=10)
     with open("resultado_final.txt", "r", encoding="utf-8") as arquivo:
         for linha in arquivo:
-            pdf.cell(200, 10, txt=linha.strip(), ln=True)
+            if linha.strip():
+                nome, media, situacao = linha.strip().split(";")
+                pdf.cell(70, 10, txt=nome, border=1)
+                pdf.cell(60, 10, txt=media, border=1)
+                pdf.cell(60, 10, txt=situacao, border=1)
+                pdf.ln()
 
     pdf.output("resultado_final.pdf")
 
