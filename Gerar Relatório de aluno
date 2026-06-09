@@ -1,0 +1,108 @@
+from fpdf import FPDF
+
+"""
+Módulo para cálculo de média e situação de alunos.
+
+@Guilherme Lorrã Souza Guimarães
+@Diego Da Silva Ferreira
+ 
+"""
+
+
+def calcular_media(nota1, nota2):
+    """
+    Calcula a média aritmética entre duas notas.
+
+    Args:
+        nota1 (float): Primeira nota.
+        nota2 (float): Segunda nota.
+
+    Returns:
+        float: Média calculada.
+    """
+    return (nota1 + nota2) / 2
+
+
+def definir_situacao(media):
+    """
+    Define a situação do aluno com base na média.
+
+    Args:
+        media (float): Média final do aluno.
+
+    Returns:
+        str: "Aprovado" se média >= 7.0, caso contrário "Reprovado".
+    """
+    if media >= 7.0:
+        return "Aprovado"
+    return "Reprovado"
+
+
+def carregar_arquivo(arquivo_entrada):
+    """
+    Lê o arquivo de entrada com as notas.
+
+    Args:
+        arquivo_entrada (str): Nome do arquivo de entrada.
+
+    Returns:
+        list: Lista de linhas do arquivo.
+    """
+    with open(arquivo_entrada, "r", encoding="utf-8") as arquivo:
+        return arquivo.readlines()
+
+
+def salvar_arquivo(arquivo_saida, resultados):
+    """
+    Salva os resultados no formato Nome;Média;Situação.
+
+    Args:
+        arquivo_saida (str): Nome do arquivo de saída.
+        resultados (list): Lista de resultados formatados.
+    """
+    with open(arquivo_saida, "w", encoding="utf-8") as arquivo:
+        for linha in resultados:
+            arquivo.write(linha + "\n")
+
+
+def processar_dados():
+    """
+    Coordena a leitura, processamento e gravação dos dados.
+    """
+    entrada = "notas_alunos.txt"
+    saida = "resultado_final.txt"
+
+    linhas = carregar_arquivo(entrada)
+    resultados = []
+
+    for linha in linhas:
+        if linha.strip():
+            nome, nota1, nota2 = linha.strip().split(";")
+            nota1 = float(nota1)
+            nota2 = float(nota2)
+
+            media = calcular_media(nota1, nota2)
+            situacao = definir_situacao(media)
+
+            resultados.append(f"{nome};{media:.2f};{situacao}")
+
+    salvar_arquivo(saida, resultados)
+
+
+def gerar_pdf():
+    """
+    Gera um arquivo PDF com os resultados dos alunos.
+    """
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+
+    with open("resultado_final.txt", "r", encoding="utf-8") as arquivo:
+        for linha in arquivo:
+            pdf.cell(200, 10, txt=linha.strip(), ln=True)
+
+    pdf.output("resultado_final.pdf")
+
+if __name__ == "__main__":
+    processar_dados()
+    gerar_pdf()
