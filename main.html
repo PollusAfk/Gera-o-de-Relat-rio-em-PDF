@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module main</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">main</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/diego/Documentos/Atividade%20central/main.py">/home/diego/Documentos/Atividade central/main.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;para&nbsp;cálculo&nbsp;de&nbsp;média,&nbsp;situação&nbsp;de&nbsp;alunos&nbsp;e&nbsp;geração&nbsp;de&nbsp;relatório&nbsp;em&nbsp;PDF.<br>
+&nbsp;<br>
+Disciplina:&nbsp;Programação&nbsp;Estruturada&nbsp;-&nbsp;Atividade&nbsp;Avaliativa&nbsp;N3<br>
+Curso:&nbsp;Sistemas&nbsp;de&nbsp;Informação&nbsp;-&nbsp;2º&nbsp;Período<br>
+Instituição:&nbsp;Universidade&nbsp;do&nbsp;Estado&nbsp;de&nbsp;Mato&nbsp;Grosso&nbsp;-&nbsp;UNEMAT<br>
+Professor:&nbsp;Prof.&nbsp;Me.&nbsp;Cides&nbsp;S.&nbsp;Bezerra<br>
+&nbsp;<br>
+@Guilherme&nbsp;Lorrã&nbsp;Souza&nbsp;Guimarães<br>
+@Diego&nbsp;Da&nbsp;Silva&nbsp;Ferreira</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="matplotlib.html">matplotlib</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-calcular_estatisticas"><strong>calcular_estatisticas</strong></a>(arquivo_resultado)</dt><dd><span class="code">Calcula&nbsp;as&nbsp;estatísticas&nbsp;gerais&nbsp;da&nbsp;turma&nbsp;a&nbsp;partir&nbsp;do&nbsp;arquivo&nbsp;de&nbsp;resultados.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;arquivo_resultado&nbsp;(str):&nbsp;Caminho&nbsp;do&nbsp;arquivo&nbsp;com&nbsp;os&nbsp;resultados&nbsp;no<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formato&nbsp;'Nome;Média;Situação'.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;Dicionário&nbsp;com&nbsp;as&nbsp;chaves:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;total&nbsp;(int):&nbsp;Total&nbsp;de&nbsp;alunos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;media_geral&nbsp;(float):&nbsp;Média&nbsp;geral&nbsp;da&nbsp;turma.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;maior_nota&nbsp;(float):&nbsp;Maior&nbsp;média&nbsp;individual.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;menor_nota&nbsp;(float):&nbsp;Menor&nbsp;média&nbsp;individual.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;aprovados&nbsp;(int):&nbsp;Quantidade&nbsp;de&nbsp;aprovados.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;reprovados&nbsp;(int):&nbsp;Quantidade&nbsp;de&nbsp;reprovados.</span></dd></dl>
+ <dl><dt><a name="-calcular_media"><strong>calcular_media</strong></a>(nota1, nota2)</dt><dd><span class="code">Calcula&nbsp;a&nbsp;média&nbsp;aritmética&nbsp;entre&nbsp;duas&nbsp;notas.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nota1&nbsp;(float):&nbsp;Primeira&nbsp;nota&nbsp;do&nbsp;aluno.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nota2&nbsp;(float):&nbsp;Segunda&nbsp;nota&nbsp;do&nbsp;aluno.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;float:&nbsp;Média&nbsp;aritmética&nbsp;entre&nbsp;nota1&nbsp;e&nbsp;nota2.</span></dd></dl>
+ <dl><dt><a name="-carregar_arquivo"><strong>carregar_arquivo</strong></a>(arquivo_entrada)</dt><dd><span class="code">Lê&nbsp;o&nbsp;arquivo&nbsp;de&nbsp;entrada&nbsp;contendo&nbsp;as&nbsp;notas&nbsp;dos&nbsp;alunos.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;arquivo_entrada&nbsp;(str):&nbsp;Caminho&nbsp;do&nbsp;arquivo&nbsp;de&nbsp;entrada&nbsp;no&nbsp;formato<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Nome;Nota1;Nota2'&nbsp;por&nbsp;linha.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list[str]:&nbsp;Lista&nbsp;de&nbsp;linhas&nbsp;lidas&nbsp;do&nbsp;arquivo.</span></dd></dl>
+ <dl><dt><a name="-definir_situacao"><strong>definir_situacao</strong></a>(media)</dt><dd><span class="code">Define&nbsp;a&nbsp;situação&nbsp;do&nbsp;aluno&nbsp;com&nbsp;base&nbsp;na&nbsp;média&nbsp;obtida.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;media&nbsp;(float):&nbsp;Média&nbsp;final&nbsp;do&nbsp;aluno.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;'Aprovado'&nbsp;se&nbsp;média&nbsp;&gt;=&nbsp;7.0,&nbsp;caso&nbsp;contrário&nbsp;'Reprovado'.</span></dd></dl>
+ <dl><dt><a name="-desenhar_bloco_estatisticas"><strong>desenhar_bloco_estatisticas</strong></a>(pdf, stats)</dt><dd><span class="code">Desenha&nbsp;o&nbsp;bloco&nbsp;de&nbsp;estatísticas&nbsp;gerais&nbsp;da&nbsp;turma&nbsp;no&nbsp;PDF.<br>
+&nbsp;<br>
+Exibe&nbsp;total&nbsp;de&nbsp;alunos,&nbsp;média&nbsp;geral,&nbsp;maior&nbsp;e&nbsp;menor&nbsp;nota&nbsp;em&nbsp;um&nbsp;bloco<br>
+destacado&nbsp;antes&nbsp;da&nbsp;tabela&nbsp;principal.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pdf&nbsp;(FPDF):&nbsp;Instância&nbsp;do&nbsp;objeto&nbsp;FPDF&nbsp;em&nbsp;uso.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stats&nbsp;(dict):&nbsp;Dicionário&nbsp;retornado&nbsp;por&nbsp;<a href="#-calcular_estatisticas">calcular_estatisticas</a>().</span></dd></dl>
+ <dl><dt><a name="-desenhar_cabecalho"><strong>desenhar_cabecalho</strong></a>(pdf, turma)</dt><dd><span class="code">Desenha&nbsp;o&nbsp;cabeçalho&nbsp;institucional&nbsp;no&nbsp;topo&nbsp;da&nbsp;página&nbsp;atual&nbsp;do&nbsp;PDF.<br>
+&nbsp;<br>
+Exibe&nbsp;o&nbsp;nome&nbsp;da&nbsp;instituição,&nbsp;turma&nbsp;e&nbsp;a&nbsp;data/hora&nbsp;da&nbsp;geração&nbsp;do&nbsp;relatório.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pdf&nbsp;(FPDF):&nbsp;Instância&nbsp;do&nbsp;objeto&nbsp;FPDF&nbsp;em&nbsp;uso.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;turma&nbsp;(str):&nbsp;Identificação&nbsp;da&nbsp;turma&nbsp;(ex:&nbsp;'Sistemas&nbsp;de&nbsp;Informação&nbsp;-&nbsp;2º&nbsp;Período').</span></dd></dl>
+ <dl><dt><a name="-desenhar_cabecalho_tabela"><strong>desenhar_cabecalho_tabela</strong></a>(pdf)</dt><dd><span class="code">Desenha&nbsp;a&nbsp;linha&nbsp;de&nbsp;cabeçalho&nbsp;da&nbsp;tabela&nbsp;de&nbsp;alunos&nbsp;no&nbsp;PDF.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pdf&nbsp;(FPDF):&nbsp;Instância&nbsp;do&nbsp;objeto&nbsp;FPDF&nbsp;em&nbsp;uso.</span></dd></dl>
+ <dl><dt><a name="-desenhar_rodape"><strong>desenhar_rodape</strong></a>(pdf, pagina_atual, total_paginas)</dt><dd><span class="code">Desenha&nbsp;o&nbsp;rodapé&nbsp;com&nbsp;número&nbsp;de&nbsp;página&nbsp;e&nbsp;nomes&nbsp;dos&nbsp;desenvolvedores.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pdf&nbsp;(FPDF):&nbsp;Instância&nbsp;do&nbsp;objeto&nbsp;FPDF&nbsp;em&nbsp;uso.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pagina_atual&nbsp;(int):&nbsp;Número&nbsp;da&nbsp;página&nbsp;corrente.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total_paginas&nbsp;(int):&nbsp;Total&nbsp;de&nbsp;páginas&nbsp;do&nbsp;documento.</span></dd></dl>
+ <dl><dt><a name="-gerar_grafico_pizza"><strong>gerar_grafico_pizza</strong></a>(aprovados, reprovados, caminho_imagem)</dt><dd><span class="code">Gera&nbsp;um&nbsp;gráfico&nbsp;de&nbsp;pizza&nbsp;com&nbsp;a&nbsp;proporção&nbsp;de&nbsp;Aprovados&nbsp;e&nbsp;Reprovados.<br>
+&nbsp;<br>
+Utiliza&nbsp;a&nbsp;biblioteca&nbsp;matplotlib&nbsp;para&nbsp;criar&nbsp;o&nbsp;gráfico&nbsp;e&nbsp;salva&nbsp;como&nbsp;PNG<br>
+para&nbsp;posterior&nbsp;inserção&nbsp;no&nbsp;PDF.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;aprovados&nbsp;(int):&nbsp;Número&nbsp;de&nbsp;alunos&nbsp;aprovados.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reprovados&nbsp;(int):&nbsp;Número&nbsp;de&nbsp;alunos&nbsp;reprovados.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;caminho_imagem&nbsp;(str):&nbsp;Caminho&nbsp;onde&nbsp;a&nbsp;imagem&nbsp;PNG&nbsp;será&nbsp;salva.</span></dd></dl>
+ <dl><dt><a name="-gerar_pdf"><strong>gerar_pdf</strong></a>()</dt><dd><span class="code">Gera&nbsp;o&nbsp;relatório&nbsp;completo&nbsp;em&nbsp;PDF&nbsp;com&nbsp;estatísticas,&nbsp;gráfico&nbsp;e&nbsp;tabela&nbsp;de&nbsp;alunos.<br>
+&nbsp;<br>
+Lê&nbsp;os&nbsp;resultados&nbsp;do&nbsp;arquivo&nbsp;'resultado_final.txt'&nbsp;e&nbsp;produz&nbsp;o&nbsp;arquivo<br>
+'relatorio_final.pdf'&nbsp;contendo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Cabeçalho&nbsp;institucional&nbsp;em&nbsp;cada&nbsp;página.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Rodapé&nbsp;com&nbsp;número&nbsp;de&nbsp;página&nbsp;e&nbsp;nomes&nbsp;dos&nbsp;desenvolvedores.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Bloco&nbsp;de&nbsp;estatísticas&nbsp;gerais&nbsp;da&nbsp;turma.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Gráfico&nbsp;de&nbsp;pizza&nbsp;de&nbsp;Aprovados&nbsp;vs&nbsp;Reprovados.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Tabela&nbsp;de&nbsp;alunos&nbsp;com&nbsp;cor&nbsp;condicional&nbsp;na&nbsp;situação&nbsp;e&nbsp;quebra&nbsp;de&nbsp;página&nbsp;manual.</span></dd></dl>
+ <dl><dt><a name="-processar_dados"><strong>processar_dados</strong></a>()</dt><dd><span class="code">Coordena&nbsp;a&nbsp;leitura,&nbsp;processamento&nbsp;e&nbsp;gravação&nbsp;dos&nbsp;dados&nbsp;dos&nbsp;alunos.<br>
+&nbsp;<br>
+Lê&nbsp;o&nbsp;arquivo&nbsp;'notas_alunos.txt',&nbsp;calcula&nbsp;média&nbsp;e&nbsp;situação&nbsp;de&nbsp;cada&nbsp;aluno<br>
+e&nbsp;grava&nbsp;o&nbsp;resultado&nbsp;em&nbsp;'resultado_final.txt'.</span></dd></dl>
+ <dl><dt><a name="-salvar_arquivo"><strong>salvar_arquivo</strong></a>(arquivo_saida, resultados)</dt><dd><span class="code">Salva&nbsp;os&nbsp;resultados&nbsp;processados&nbsp;no&nbsp;formato&nbsp;Nome;Média;Situação.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;arquivo_saida&nbsp;(str):&nbsp;Caminho&nbsp;do&nbsp;arquivo&nbsp;de&nbsp;saída&nbsp;a&nbsp;ser&nbsp;gerado.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;resultados&nbsp;(list[str]):&nbsp;Lista&nbsp;de&nbsp;strings&nbsp;formatadas&nbsp;para&nbsp;gravação.</span></dd></dl>
+</td></tr></table>
+</body></html>
